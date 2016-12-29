@@ -1,0 +1,127 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "beml",
+	"patterns": [
+		{ "include": "#namespace_declaration" },
+		{ "include": "#super_call" },
+		{ "include": "#tag_name" },
+		{ "include": "#element_name" },
+		{ "include": "#arguments_block" },
+		{ "include": "#single_quote_string" },
+		{ "include": "#double_quote_string" },
+		{ "include": "#multiline_string" },
+		{ "include": "#inline_comment" },
+		{ "include": "#multiline_comment" }
+	],
+	"repository": {
+		"namespace_declaration": {
+			"name": "support.class.beml",
+			"match": "#[a-zA-Z][\\-0-9a-zA-Z]*",
+			"patterns": []
+		},
+		"tag_name": {
+			"name": "entity.name.tag.beml",
+			"begin": "[a-zA-Z]",
+			"end": "[\\-0-9a-zA-Z](?=[^\\-0-9a-zA-Z])",
+			"patterns": []
+		},
+		"element_name": {
+			"name": "entity.other.attribute-name.beml",
+			"begin": "\\/[a-zA-Z]",
+			"end": "[\\-0-9a-zA-Z](?=[^\\-0-9a-zA-Z])",
+			"patterns": []
+		},
+		"arguments_block": {
+			"name": "meta.tagname.beml",
+			"begin": "\\(",
+			"end": "\\)",
+			"patterns": [
+				{ "include": "#single_quote_string" },
+				{ "include": "#double_quote_string" },
+				{ "include": "#multiline_string" },
+				{
+					"name": "variable.parameter.beml",
+					"match": "[a-zA-Z][\\-_0-9a-zA-Z]*"
+				},
+				{
+					"name": "string.beml",
+					"begin": "(=)\\s*(?!['\"`])",
+					"beginCaptures": {
+						"1": { "name": "keyword.operator.assignment.beml" }
+					},
+					"end": "\\S(?=[\\r\\n,)])"
+				},
+				{
+					"name": "keyword.operator.assignment.beml",
+					"match": "="
+				}
+			]
+		},
+		"super_call": {
+			"name": "keyword.other.special-method.beml",
+			"match": "\\bsuper!",
+			"patterns": []
+		},
+		"single_quote_string": {
+			"name": "string.quoted.single.beml",
+			"begin": "'",
+			"beginCaptures": {
+				"0": { "name": "punctuation.definition.string.begin.beml" }
+			},
+			"end": "'|(?=(?:\\\\\\\\)*[^\\\\]$)",
+			"endCaptures": {
+				"0": { "name": "punctuation.definition.string.end.beml" }
+			},
+			"patterns": [{
+				"include": "#string_escaped_char"
+			}]
+		},
+		"double_quote_string": {
+			"name": "string.quoted.double.beml",
+			"begin": "\"",
+			"beginCaptures": {
+				"0": { "name": "punctuation.definition.string.begin.beml" }
+			},
+			"end": "\"|(?=(?:\\\\\\\\)*[^\\\\]$)",
+			"endCaptures": {
+				"0": { "name": "punctuation.definition.string.end.beml" }
+			},
+			"patterns": [{
+				"include": "#string_escaped_char"
+			}]
+		},
+		"multiline_string": {
+			"name": "string.quoted.block.beml",
+			"begin": "`",
+			"beginCaptures": {
+				"0": { "name": "punctuation.definition.string.begin.beml" }
+			},
+			"end": "`",
+			"endCaptures": {
+				"0": { "name": "punctuation.definition.string.end.beml" }
+			},
+			"patterns": []
+		},
+		"string_escaped_char": {
+			"patterns": [{
+				"match": "\\\\(\\\\|['\"\\/bfnrt]|x[0-9a-fA-F]{2}|u[0-9a-fA-F]{4})",
+				"name": "constant.character.escape.beml"
+			}, {
+				"match": "\\\\.",
+				"name": "invalid.illegal.unknown-escape.beml"
+			}]
+		},
+		"inline_comment": {
+			"match": "\\/\\/.*",
+			"name": "comment.line.double-slash.beml",
+			"patterns": []
+		},
+		"multiline_comment": {
+			"begin": "\\/\\*",
+			"end": "\\*\\/",
+			"name": "comment.block.beml",
+			"patterns": []
+		}
+	},
+	"scopeName": "source.beml"
+}
