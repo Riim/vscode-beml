@@ -6,7 +6,7 @@
 		{ "include": "#super_call" },
 		{ "include": "#tag_name" },
 		{ "include": "#element_name" },
-		{ "include": "#arguments_block" },
+		{ "include": "#attributes_block" },
 		{ "include": "#single_quote_string" },
 		{ "include": "#double_quote_string" },
 		{ "include": "#multiline_string" },
@@ -21,8 +21,8 @@
 		},
 		"tag_name": {
 			"name": "entity.name.tag.beml",
-			"begin": "[a-zA-Z]",
-			"end": "[\\-0-9a-zA-Z](?=[^\\-0-9a-zA-Z])",
+			"begin": "[_a-zA-Z]",
+			"end": "[\\-\\w](?=[^:\\-\\w])",
 			"patterns": []
 		},
 		"element_name": {
@@ -31,7 +31,7 @@
 			"end": "[\\-0-9a-zA-Z](?=[^\\-0-9a-zA-Z])",
 			"patterns": []
 		},
-		"arguments_block": {
+		"attributes_block": {
 			"name": "meta.tagname.beml",
 			"begin": "\\(",
 			"end": "\\)",
@@ -41,7 +41,8 @@
 				{ "include": "#multiline_string" },
 				{
 					"name": "variable.parameter.beml",
-					"match": "[a-zA-Z][\\-_0-9a-zA-Z]*"
+					"begin": "[_a-zA-Z]",
+					"end": "[\\-\\w](?=[^:\\-\\w])"
 				},
 				{
 					"name": "string.beml",
