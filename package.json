@@ -3,7 +3,7 @@
     "displayName": "vscode-beml",
     "description": "",
     "version": "0.1.1",
-    "publisher": "Riim",
+    "publisher": "riim",
     "engines": {
         "vscode": "^1.5.0"
     },
