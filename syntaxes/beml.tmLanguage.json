@@ -21,14 +21,12 @@
 		},
 		"tag_name": {
 			"name": "entity.name.tag.beml",
-			"begin": "[_a-zA-Z]",
-			"end": "[\\-\\w](?=[^:\\-\\w])",
+			"match": "[a-zA-Z][\\-\\w]*(?::[_a-zA-Z][\\-\\w]*)?",
 			"patterns": []
 		},
 		"element_name": {
 			"name": "entity.other.attribute-name.beml",
-			"begin": "\\/[a-zA-Z]",
-			"end": "[\\-0-9a-zA-Z](?=[^\\-0-9a-zA-Z])",
+			"match": "\\/[a-zA-Z][\\-\\w]*",
 			"patterns": []
 		},
 		"attributes_block": {
@@ -41,8 +39,7 @@
 				{ "include": "#multiline_string" },
 				{
 					"name": "variable.parameter.beml",
-					"begin": "[_a-zA-Z]",
-					"end": "[\\-\\w](?=[^:\\-\\w])"
+					"match": "[_a-zA-Z][\\-\\w]*(?::[_a-zA-Z][\\-\\w]*)?"
 				},
 				{
 					"name": "string.beml",
