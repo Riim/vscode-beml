@@ -26,7 +26,7 @@
 		},
 		"element_name": {
 			"name": "entity.other.attribute-name.beml",
-			"match": "\\/[a-zA-Z][\\-\\w]*",
+			"match": "\\/[_a-zA-Z][\\-\\w]*",
 			"patterns": []
 		},
 		"attributes_block": {
@@ -47,7 +47,7 @@
 					"beginCaptures": {
 						"1": { "name": "keyword.operator.assignment.beml" }
 					},
-					"end": "\\S(?=[\\r\\n,)])"
+					"end": "\\S(?=[,)])"
 				},
 				{
 					"name": "keyword.operator.assignment.beml",
@@ -66,7 +66,7 @@
 			"beginCaptures": {
 				"0": { "name": "punctuation.definition.string.begin.beml" }
 			},
-			"end": "'|(?=(?:\\\\\\\\)*[^\\\\]$)",
+			"end": "'|(?:\\\\\\\\)*[^\\\\]$",
 			"endCaptures": {
 				"0": { "name": "punctuation.definition.string.end.beml" }
 			},
@@ -80,7 +80,7 @@
 			"beginCaptures": {
 				"0": { "name": "punctuation.definition.string.begin.beml" }
 			},
-			"end": "\"|(?=(?:\\\\\\\\)*[^\\\\]$)",
+			"end": "\"|(?:\\\\\\\\)*[^\\\\]$",
 			"endCaptures": {
 				"0": { "name": "punctuation.definition.string.end.beml" }
 			},
