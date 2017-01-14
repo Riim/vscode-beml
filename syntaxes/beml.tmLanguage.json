@@ -34,9 +34,6 @@
 			"begin": "\\(",
 			"end": "\\)",
 			"patterns": [
-				{ "include": "#single_quote_string" },
-				{ "include": "#double_quote_string" },
-				{ "include": "#multiline_string" },
 				{
 					"name": "variable.parameter.beml",
 					"match": "[_a-zA-Z][\\-\\w]*(?::[_a-zA-Z][\\-\\w]*)?"
@@ -47,12 +44,15 @@
 					"beginCaptures": {
 						"1": { "name": "keyword.operator.assignment.beml" }
 					},
-					"end": "\\S(?=[,)])"
+					"end": "\\S(?=[\\r\\n,)])"
 				},
 				{
 					"name": "keyword.operator.assignment.beml",
 					"match": "="
-				}
+				},
+				{ "include": "#single_quote_string" },
+				{ "include": "#double_quote_string" },
+				{ "include": "#multiline_string" }
 			]
 		},
 		"super_call": {
@@ -102,22 +102,22 @@
 		},
 		"string_escaped_char": {
 			"patterns": [{
-				"match": "\\\\(\\\\|['\"\\/bfnrt]|x[0-9a-fA-F]{2}|u[0-9a-fA-F]{4})",
-				"name": "constant.character.escape.beml"
+				"name": "constant.character.escape.beml",
+				"match": "\\\\(\\\\|['\"\\/bfnrt]|x[0-9a-fA-F]{2}|u[0-9a-fA-F]{4})"
 			}, {
-				"match": "\\\\.",
-				"name": "invalid.illegal.unknown-escape.beml"
+				"name": "invalid.illegal.unknown-escape.beml",
+				"match": "\\\\."
 			}]
 		},
 		"inline_comment": {
-			"match": "\\/\\/.*",
 			"name": "comment.line.double-slash.beml",
+			"match": "\\/\\/.*",
 			"patterns": []
 		},
 		"multiline_comment": {
+			"name": "comment.block.beml",
 			"begin": "\\/\\*",
 			"end": "\\*\\/",
-			"name": "comment.block.beml",
 			"patterns": []
 		}
 	},
