@@ -25,8 +25,11 @@
 			"patterns": []
 		},
 		"element_name": {
-			"name": "entity.name.function.beml",
-			"match": "/[_a-zA-Z][\\-\\w]*",
+			"name": "function.declaration.beml",
+			"match": "/([_a-zA-Z][\\-\\w]*)",
+			"captures": {
+				"1": { "name": "entity.name.function.beml" }
+			},
 			"patterns": []
 		},
 		"attributes_block": {
@@ -44,7 +47,7 @@
 					"beginCaptures": {
 						"1": { "name": "keyword.operator.assignment.beml" }
 					},
-					"end": "\\S(?=[\\r\\n,)])"
+					"end": "\\S(?=\\s*[\\r\\n,)])"
 				},
 				{
 					"name": "keyword.operator.assignment.beml",
@@ -56,13 +59,12 @@
 			]
 		},
 		"super_call": {
-			"name": "storage.type.function.beml",
-			"begin": "\\bsuper(?=(?:\\.[_a-zA-Z][\\-\\w]*)?!)",
-			"end": "!",
-			"patterns": [{
-				"name": "entity.name.function.beml",
-				"match": "\\.[_a-zA-Z][\\-\\w]*"
-			}]
+			"name": "storage.type.function.call.beml",
+			"match": "\\bsuper(?:\\.([_a-zA-Z][\\-\\w]*))?(!)",
+			"captures": {
+				"1": { "name": "entity.name.function.beml" }
+			},
+			"patterns": []
 		},
 		"single_quote_string": {
 			"name": "string.quoted.single.beml",
