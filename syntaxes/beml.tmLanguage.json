@@ -38,6 +38,9 @@
 			"end": "\\)",
 			"patterns": [
 				{
+					"include": "#super_call"
+				},
+				{
 					"name": "variable.parameter.beml",
 					"match": "[_a-zA-Z][\\-\\w]*(?::[_a-zA-Z][\\-\\w]*)?"
 				},
