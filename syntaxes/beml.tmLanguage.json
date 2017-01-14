@@ -25,8 +25,8 @@
 			"patterns": []
 		},
 		"element_name": {
-			"name": "entity.other.attribute-name.beml",
-			"match": "\\/[_a-zA-Z][\\-\\w]*",
+			"name": "entity.name.function.beml",
+			"match": "/[_a-zA-Z][\\-\\w]*",
 			"patterns": []
 		},
 		"attributes_block": {
@@ -56,9 +56,13 @@
 			]
 		},
 		"super_call": {
-			"name": "keyword.other.special-method.beml",
-			"match": "\\bsuper!",
-			"patterns": []
+			"name": "storage.type.function.beml",
+			"begin": "\\bsuper(?=(?:\\.[_a-zA-Z][\\-\\w]*)?!)",
+			"end": "!",
+			"patterns": [{
+				"name": "entity.name.function.beml",
+				"match": "\\.[_a-zA-Z][\\-\\w]*"
+			}]
 		},
 		"single_quote_string": {
 			"name": "string.quoted.single.beml",
@@ -103,7 +107,7 @@
 		"string_escaped_char": {
 			"patterns": [{
 				"name": "constant.character.escape.beml",
-				"match": "\\\\(\\\\|['\"\\/bfnrt]|x[0-9a-fA-F]{2}|u[0-9a-fA-F]{4})"
+				"match": "\\\\(\\\\|['\"/bfnrt]|x[0-9a-fA-F]{2}|u[0-9a-fA-F]{4})"
 			}, {
 				"name": "invalid.illegal.unknown-escape.beml",
 				"match": "\\\\."
@@ -111,13 +115,13 @@
 		},
 		"inline_comment": {
 			"name": "comment.line.double-slash.beml",
-			"match": "\\/\\/.*",
+			"match": "//.*",
 			"patterns": []
 		},
 		"multiline_comment": {
 			"name": "comment.block.beml",
-			"begin": "\\/\\*",
-			"end": "\\*\\/",
+			"begin": "/\\*",
+			"end": "\\*/",
 			"patterns": []
 		}
 	},
