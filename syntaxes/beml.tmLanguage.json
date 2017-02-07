@@ -46,7 +46,7 @@
 				},
 				{
 					"name": "string.beml",
-					"begin": "(=)\\s*(?!['\"`])",
+					"begin": "(=)\\s*(?!['\"`,)])",
 					"beginCaptures": {
 						"1": { "name": "keyword.operator.assignment.beml" }
 					},
