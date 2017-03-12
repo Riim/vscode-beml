@@ -43,9 +43,7 @@
 			"begin": "\\(",
 			"end": "\\)",
 			"patterns": [
-				{
-					"include": "#super_call"
-				},
+				{ "include": "#super_call" },
 				{
 					"name": "variable.parameter.beml",
 					"match": "[_a-zA-Z][\\-\\w]*(?::[_a-zA-Z][\\-\\w]*)?"
@@ -64,7 +62,9 @@
 				},
 				{ "include": "#single_quote_string" },
 				{ "include": "#double_quote_string" },
-				{ "include": "#multiline_string" }
+				{ "include": "#multiline_string" },
+				{ "include": "#inline_comment" },
+				{ "include": "#multiline_comment" }
 			]
 		},
 		"super_call": {
