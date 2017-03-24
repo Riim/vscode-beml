@@ -5,8 +5,7 @@
 		{ "include": "#namespace_declaration" },
 		{ "include": "#super_call" },
 		{ "include": "#tag_name" },
-		{ "include": "#helper_name" },
-		{ "include": "#element_name" },
+		{ "include": "#element_names" },
 		{ "include": "#attributes_block" },
 		{ "include": "#single_quote_string" },
 		{ "include": "#double_quote_string" },
@@ -22,17 +21,12 @@
 		},
 		"tag_name": {
 			"name": "entity.name.tag.beml",
-			"match": "[a-zA-Z][\\-\\w]*(?::[_a-zA-Z][\\-\\w]*)?",
+			"match": "@?[a-zA-Z][\\-\\w]*(?::[_a-zA-Z][\\-\\w]*)?",
 			"patterns": []
 		},
-		"helper_name": {
-			"name": "entity.name.function.beml",
-			"match": "@[a-zA-Z][\\-\\w]*(?::[_a-zA-Z][\\-\\w]*)?",
-			"patterns": []
-		},
-		"element_name": {
+		"element_names": {
 			"name": "function.declaration.beml",
-			"match": "/([_a-zA-Z][\\-\\w]*)",
+			"match": "/(?:\\s*([_a-zA-Z][\\-\\w]*))?(?:\\s*,\\s*[_a-zA-Z][\\-\\w]*)*",
 			"captures": {
 				"1": { "name": "entity.name.function.beml" }
 			},
