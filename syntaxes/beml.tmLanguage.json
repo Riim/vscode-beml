@@ -63,7 +63,7 @@
 		},
 		"super_call": {
 			"name": "storage.type.function.call.beml",
-			"match": "\\bsuper(?:\\.([_a-zA-Z][\\-\\w]*))?(!)",
+			"match": "\\bsuper(?:\\.([a-zA-Z][\\-\\w]*))?(!)",
 			"captures": {
 				"1": { "name": "entity.name.function.beml" }
 			},
