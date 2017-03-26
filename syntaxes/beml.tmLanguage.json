@@ -2,6 +2,8 @@
 	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
 	"name": "beml",
 	"patterns": [
+		{ "include": "#inline_comment" },
+		{ "include": "#multiline_comment" },
 		{ "include": "#namespace_declaration" },
 		{ "include": "#super_call" },
 		{ "include": "#tag_name" },
@@ -9,9 +11,7 @@
 		{ "include": "#attributes_block" },
 		{ "include": "#single_quote_string" },
 		{ "include": "#double_quote_string" },
-		{ "include": "#multiline_string" },
-		{ "include": "#inline_comment" },
-		{ "include": "#multiline_comment" }
+		{ "include": "#multiline_string" }
 	],
 	"repository": {
 		"namespace_declaration": {
