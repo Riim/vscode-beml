@@ -26,9 +26,10 @@
 		},
 		"element_names": {
 			"name": "function.declaration.beml",
-			"match": "/(?:\\s*([a-zA-Z][\\-\\w]*))?(?:\\s*,\\s*[a-zA-Z][\\-\\w]*)*",
+			"match": "/(?:\\s*([a-zA-Z][\\-\\w]*))?(?:\\s*,\\s*([a-zA-Z][\\-\\w]*))*",
 			"captures": {
-				"1": { "name": "entity.name.function.beml" }
+				"1": { "name": "entity.name.function.beml" },
+				"2": { "name": "entity.name.type.beml" }
 			},
 			"patterns": []
 		},
