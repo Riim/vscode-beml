@@ -1,3 +1,3 @@
-# Beml support for Visual Studio Code
+# Nelm support for Visual Studio Code
 
-This extension adds beml support for VSCode.
+This extension adds nelm support for VSCode.

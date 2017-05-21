@@ -1,8 +1,8 @@
 {
-    "name": "vscode-beml",
-    "displayName": "vscode-beml",
+    "name": "vscode-nelm",
+    "displayName": "vscode-nelm",
     "description": "",
-    "version": "0.1.20",
+    "version": "0.2.0",
     "publisher": "riim",
     "engines": {
         "vscode": "^1.5.0"
@@ -12,15 +12,15 @@
     ],
     "contributes": {
         "languages": [{
-            "id": "beml",
-            "aliases": ["beml", "beml"],
-            "extensions": [".beml"],
+            "id": "nelm",
+            "aliases": ["nelm", "nelm"],
+            "extensions": [".nelm"],
             "configuration": "./language-configuration.json"
         }],
         "grammars": [{
-            "language": "beml",
-            "scopeName": "source.beml",
-            "path": "./syntaxes/beml.tmLanguage.json"
+            "language": "nelm",
+            "scopeName": "source.nelm",
+            "path": "./syntaxes/nelm.tmLanguage.json"
         }]
     }
 }

@@ -1,6 +1,6 @@
 {
 	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
-	"name": "beml",
+	"name": "nelm",
 	"patterns": [
 		{ "include": "#inline_comment" },
 		{ "include": "#multiline_comment" },
@@ -15,44 +15,44 @@
 	],
 	"repository": {
 		"namespace_declaration": {
-			"name": "support.class.beml",
+			"name": "support.class.nelm",
 			"match": "#[a-zA-Z][\\-\\w]*",
 			"patterns": []
 		},
 		"tag_name": {
-			"name": "entity.name.tag.beml",
+			"name": "entity.name.tag.nelm",
 			"match": "@?[a-zA-Z][\\-\\w]*(?::[_a-zA-Z][\\-\\w]*)?",
 			"patterns": []
 		},
 		"element_names": {
-			"name": "function.declaration.beml",
+			"name": "function.declaration.nelm",
 			"match": "/(?:\\s*([a-zA-Z][\\-\\w]*))?(?:\\s*,\\s*([a-zA-Z][\\-\\w]*))*",
 			"captures": {
-				"1": { "name": "entity.name.function.beml" },
-				"2": { "name": "entity.name.type.beml" }
+				"1": { "name": "entity.name.function.nelm" },
+				"2": { "name": "entity.name.type.nelm" }
 			},
 			"patterns": []
 		},
 		"attributes_block": {
-			"name": "meta.tagname.beml",
+			"name": "meta.tagname.nelm",
 			"begin": "\\(",
 			"end": "\\)",
 			"patterns": [
 				{ "include": "#super_call" },
 				{
-					"name": "variable.parameter.beml",
+					"name": "variable.parameter.nelm",
 					"match": "[_a-zA-Z][\\-\\w]*(?::[_a-zA-Z][\\-\\w]*)?"
 				},
 				{
-					"name": "string.beml",
+					"name": "string.nelm",
 					"begin": "(=)\\s*(?!['\"`,)])",
 					"beginCaptures": {
-						"1": { "name": "keyword.operator.assignment.beml" }
+						"1": { "name": "keyword.operator.assignment.nelm" }
 					},
 					"end": "\\S(?=\\s*[\\r\\n,)])"
 				},
 				{
-					"name": "keyword.operator.assignment.beml",
+					"name": "keyword.operator.assignment.nelm",
 					"match": "="
 				},
 				{ "include": "#single_quote_string" },
@@ -63,73 +63,73 @@
 			]
 		},
 		"super_call": {
-			"name": "storage.type.function.call.beml",
+			"name": "storage.type.function.call.nelm",
 			"match": "\\bsuper(?:\\.([a-zA-Z][\\-\\w]*))?(!)",
 			"captures": {
-				"1": { "name": "entity.name.function.beml" }
+				"1": { "name": "entity.name.function.nelm" }
 			},
 			"patterns": []
 		},
 		"single_quote_string": {
-			"name": "string.quoted.single.beml",
+			"name": "string.quoted.single.nelm",
 			"begin": "'",
 			"beginCaptures": {
-				"0": { "name": "punctuation.definition.string.begin.beml" }
+				"0": { "name": "punctuation.definition.string.begin.nelm" }
 			},
 			"end": "'|(?:\\\\\\\\)*[^\\\\]$",
 			"endCaptures": {
-				"0": { "name": "punctuation.definition.string.end.beml" }
+				"0": { "name": "punctuation.definition.string.end.nelm" }
 			},
 			"patterns": [{
 				"include": "#string_escaped_char"
 			}]
 		},
 		"double_quote_string": {
-			"name": "string.quoted.double.beml",
+			"name": "string.quoted.double.nelm",
 			"begin": "\"",
 			"beginCaptures": {
-				"0": { "name": "punctuation.definition.string.begin.beml" }
+				"0": { "name": "punctuation.definition.string.begin.nelm" }
 			},
 			"end": "\"|(?:\\\\\\\\)*[^\\\\]$",
 			"endCaptures": {
-				"0": { "name": "punctuation.definition.string.end.beml" }
+				"0": { "name": "punctuation.definition.string.end.nelm" }
 			},
 			"patterns": [{
 				"include": "#string_escaped_char"
 			}]
 		},
 		"multiline_string": {
-			"name": "string.quoted.block.beml",
+			"name": "string.quoted.block.nelm",
 			"begin": "`",
 			"beginCaptures": {
-				"0": { "name": "punctuation.definition.string.begin.beml" }
+				"0": { "name": "punctuation.definition.string.begin.nelm" }
 			},
 			"end": "`",
 			"endCaptures": {
-				"0": { "name": "punctuation.definition.string.end.beml" }
+				"0": { "name": "punctuation.definition.string.end.nelm" }
 			},
 			"patterns": []
 		},
 		"string_escaped_char": {
 			"patterns": [{
-				"name": "constant.character.escape.beml",
+				"name": "constant.character.escape.nelm",
 				"match": "\\\\(\\\\|['\"/bfnrt]|x[0-9a-fA-F]{2}|u[0-9a-fA-F]{4})"
 			}, {
-				"name": "invalid.illegal.unknown-escape.beml",
+				"name": "invalid.illegal.unknown-escape.nelm",
 				"match": "\\\\."
 			}]
 		},
 		"inline_comment": {
-			"name": "comment.line.double-slash.beml",
+			"name": "comment.line.double-slash.nelm",
 			"match": "//.*",
 			"patterns": []
 		},
 		"multiline_comment": {
-			"name": "comment.block.beml",
+			"name": "comment.block.nelm",
 			"begin": "/\\*",
 			"end": "\\*/",
 			"patterns": []
 		}
 	},
-	"scopeName": "source.beml"
+	"scopeName": "source.nelm"
 }
